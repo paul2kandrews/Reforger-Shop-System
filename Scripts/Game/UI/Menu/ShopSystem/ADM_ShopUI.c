@@ -1,11 +1,5 @@
 class ADM_ShopUI_Item : SCR_ModularButtonComponent
 {
-	[Attribute(defvalue: "MenuNavLeft")]
-	protected string m_sQuantityActionLess;
-	
-	[Attribute(defvalue: "MenuNavRight")]
-	protected string m_sQuantityActionMore;
-	
 	[Attribute(defvalue: "MenuLeft")]
 	protected string m_sScrollActionLeft;
 	
@@ -149,9 +143,6 @@ class ADM_ShopUI_Item : SCR_ModularButtonComponent
 		if (m_bHasActionListeners)
 			return;
 		
-		GetGame().GetInputManager().AddActionListener(m_sQuantityActionLess, EActionTrigger.DOWN, OnQuantityLess);
-		GetGame().GetInputManager().AddActionListener(m_sQuantityActionMore, EActionTrigger.DOWN, OnQuantityMore);
-		
 		GetGame().GetInputManager().AddActionListener(m_sScrollActionLeft, EActionTrigger.DOWN, OnScrollLeft);
 		GetGame().GetInputManager().AddActionListener(m_sScrollActionRight, EActionTrigger.DOWN, OnScrollRight);
 		
@@ -162,9 +153,6 @@ class ADM_ShopUI_Item : SCR_ModularButtonComponent
 	{
 		if (!m_bHasActionListeners)
 			return;
-		
-		GetGame().GetInputManager().RemoveActionListener(m_sQuantityActionLess, EActionTrigger.DOWN, OnQuantityLess);
-		GetGame().GetInputManager().RemoveActionListener(m_sQuantityActionMore, EActionTrigger.DOWN, OnQuantityMore);
 		
 		GetGame().GetInputManager().RemoveActionListener(m_sScrollActionLeft, EActionTrigger.DOWN, OnScrollLeft);
 		GetGame().GetInputManager().RemoveActionListener(m_sScrollActionRight, EActionTrigger.DOWN, OnScrollRight);
